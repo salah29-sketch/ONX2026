@@ -1,0 +1,10 @@
+import './bootstrap';
+import Alpine from 'alpinejs';
+import collapse from '@alpinejs/collapse';
+Alpine.plugin(collapse);
+window.Alpine = Alpine;
+Alpine.start();
+import './admin/portfolio-form';
+import './admin/dropzone-upload';
+import './admin/calendar';
+import './admin/notifications';

@@ -1,0 +1,59 @@
+﻿ ------ -------------------------------------------------- 
+  Line   Console\Commands\ProcessSubscriptionRenewals.php  
+ ------ -------------------------------------------------- 
+  64     Anonymous function has an unused use $oldNext.    
+         ­ƒ¬¬  closure.unusedUse                             
+ ------ -------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------- 
+  Line   Http\Controllers\Admin\RolesController.php                                       
+ ------ --------------------------------------------------------------------------------- 
+  31     Called 'pluck' on Laravel collection, but could have been retrieved as a query.  
+         ­ƒ¬¬  larastan.noUnnecessaryCollectionCall                                         
+  51     Called 'pluck' on Laravel collection, but could have been retrieved as a query.  
+         ­ƒ¬¬  larastan.noUnnecessaryCollectionCall                                         
+ ------ --------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------- 
+  Line   Http\Controllers\Admin\UsersController.php                                       
+ ------ --------------------------------------------------------------------------------- 
+  30     Called 'pluck' on Laravel collection, but could have been retrieved as a query.  
+         ­ƒ¬¬  larastan.noUnnecessaryCollectionCall                                         
+  49     Called 'pluck' on Laravel collection, but could have been retrieved as a query.  
+         ­ƒ¬¬  larastan.noUnnecessaryCollectionCall                                         
+ ------ --------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------- 
+  Line   Livewire\Booking\EventBookingForm.php                                                
+ ------ ------------------------------------------------------------------------------------- 
+  135    Call to static method find() on an unknown class App\Models\Service\ServicePackage.  
+         ­ƒ¬¬  class.notFound                                                                   
+         ­ƒÆí  Learn more at https://phpstan.org/user-guide/discovering-symbols                 
+  268    Call to static method active() on an unknown class App\Models\Event\EventOption.     
+         ­ƒ¬¬  class.notFound                                                                   
+         ­ƒÆí  Learn more at https://phpstan.org/user-guide/discovering-symbols                 
+ ------ ------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   Models\Booking\BookingPayment.php                                                      
+ ------ --------------------------------------------------------------------------------------- 
+  31     Access to an undefined property App\Models\Booking\BookingPayment::$type.              
+         ­ƒ¬¬  property.notFound                                                                  
+         ­ƒÆí  Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------- 
+  Line   Providers\AuthServiceProvider.php                                                  
+ ------ ----------------------------------------------------------------------------------- 
+  17     Call to an undefined static method Laravel\Passport\Passport::ignoreMigrations().  
+         ­ƒ¬¬  staticMethod.notFound                                                          
+ ------ ----------------------------------------------------------------------------------- 
+
+ -- ---------------------------------------------------------------------------------------------------- 
+     Error                                                                                               
+ -- ---------------------------------------------------------------------------------------------------- 
+     Ignored error pattern #PHPDoc tag @property has invalid value# was not matched in reported errors.  
+ -- ---------------------------------------------------------------------------------------------------- 
+
+ [ERROR] Found 10 errors                                                                                               
+

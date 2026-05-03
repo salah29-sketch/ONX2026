@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import './portfolio-works-grid.css';
+
+/* ─── Front: ظهور تدريجي عند التمرير (Scroll Reveal) ───────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* العناصر تبقى مخفية حتى يدخل القسم نطاق الشاشة */
+[data-reveal] .reveal-item,
+[data-reveal] .reveal-card {
+  opacity: 0;
+}
+
+/* عند ظهور القسم في الشاشة (يُضاف .in-view عبر JS) نشغّل الحركة */
+[data-reveal].in-view .reveal-item {
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+[data-reveal].in-view .reveal-card {
+  animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* تأخير متتابع داخل نفس القسم */
+[data-reveal].in-view .reveal-delay-1 { animation-delay: 60ms; }
+[data-reveal].in-view .reveal-delay-2 { animation-delay: 120ms; }
+[data-reveal].in-view .reveal-delay-3 { animation-delay: 180ms; }
+[data-reveal].in-view .reveal-delay-4 { animation-delay: 240ms; }
+[data-reveal].in-view .reveal-delay-5 { animation-delay: 300ms; }
+[data-reveal].in-view .reveal-delay-6 { animation-delay: 360ms; }
+[data-reveal].in-view .reveal-delay-7 { animation-delay: 420ms; }
+[data-reveal].in-view .reveal-delay-8 { animation-delay: 480ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] .reveal-item,
+  [data-reveal] .reveal-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Custom styles for the features list and more button */
+
+.features-list {
+  transition: max-height 0.35s ease;
+}
+
+.features-list.collapsed {
+  max-height: 170px;
+  overflow: hidden;
+}
+
+.features-list.expanded {
+  max-height: 2000px;
+  overflow: visible;
+}
+
+.onx-more-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+@keyframes fadeInUpDirect {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+.animate-fade-in-up {
+  animation: fadeInUpDirect 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+ 
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+ 

@@ -1,0 +1,11 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+    level: 6
+    ignoreErrors:
+        # Larastan does not detect some dynamic Laravel relations
+        - '#Relation .* is not found#'
+        # Some PHPDoc in models does not align with Larastan expectations
