@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita42e715925bb3d743365157a022550ed
+class ComposerStaticInitf6c11df31d8a000738d29802437fc186
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -851,6 +851,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'App\\Http\\Controllers\\Admin\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UsersController.php',
         'App\\Http\\Controllers\\Admin\\WorkersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WorkersController.php',
         'App\\Http\\Controllers\\Api\\PackageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PackageController.php',
+        'App\\Http\\Controllers\\Api\\SmartBookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SmartBookingController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
@@ -901,6 +902,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'App\\Livewire\\Booking\\BookingPage' => __DIR__ . '/../..' . '/app/Livewire/Booking/BookingPage.php',
         'App\\Livewire\\Booking\\EventBookingForm' => __DIR__ . '/../..' . '/app/Livewire/Booking/EventBookingForm.php',
         'App\\Livewire\\Booking\\EventBookingWizard' => __DIR__ . '/../..' . '/app/Livewire/Booking/EventBookingWizard.php',
+        'App\\Livewire\\Booking\\SmartBookingForm' => __DIR__ . '/../..' . '/app/Livewire/Booking/SmartBookingForm.php',
         'App\\Livewire\\Booking\\SubscriptionBookingWizard' => __DIR__ . '/../..' . '/app/Livewire/Booking/SubscriptionBookingWizard.php',
         'App\\Mail\\BookingConfirmationMail' => __DIR__ . '/../..' . '/app/Mail/BookingConfirmationMail.php',
         'App\\Mail\\Client\\PasswordResetOtpMail' => __DIR__ . '/../..' . '/app/Mail/Client/PasswordResetOtpMail.php',
@@ -1095,8 +1097,10 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Database\\Factories\\ClientFactory' => __DIR__ . '/../..' . '/database/factories/ClientFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DemoSeeder' => __DIR__ . '/../..' . '/database/seeders/DemoSeeder.php',
+        'Database\\Seeders\\EnhancedDemoSeeder' => __DIR__ . '/../..' . '/database/seeders/EnhancedDemoSeeder.php',
         'Database\\Seeders\\FaqTestimonialSeeder' => __DIR__ . '/../..' . '/database/seeders/FaqTestimonialSeeder.php',
         'Database\\Seeders\\PackageBuilderSeeder' => __DIR__ . '/../..' . '/database/seeders/PackageBuilderSeeder.php',
+        'Database\\Seeders\\PackageSystemSeeder' => __DIR__ . '/../..' . '/database/seeders/PackageSystemSeeder.php',
         'Database\\Seeders\\TravelZoneSeeder' => __DIR__ . '/../..' . '/database/seeders/TravelZoneSeeder.php',
         'Database\\Seeders\\WilayaSeeder' => __DIR__ . '/../..' . '/database/seeders/WilayaSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
@@ -1148,6 +1152,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Defuse\\Crypto\\KeyOrPassword' => __DIR__ . '/..' . '/defuse/php-encryption/src/KeyOrPassword.php',
         'Defuse\\Crypto\\KeyProtectedByPassword' => __DIR__ . '/..' . '/defuse/php-encryption/src/KeyProtectedByPassword.php',
         'Defuse\\Crypto\\RuntimeTests' => __DIR__ . '/..' . '/defuse/php-encryption/src/RuntimeTests.php',
+        'DelayedTargetValidation' => __DIR__ . '/..' . '/symfony/polyfill-php85/Resources/stubs/DelayedTargetValidation.php',
         'Deprecated' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Deprecated.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
@@ -1920,6 +1925,8 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/ValidGenerator.php',
+        'Filter\\FilterException' => __DIR__ . '/..' . '/symfony/polyfill-php85/Resources/stubs/Filter/FilterException.php',
+        'Filter\\FilterFailedException' => __DIR__ . '/..' . '/symfony/polyfill-php85/Resources/stubs/Filter/FilterFailedException.php',
         'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
         'Firebase\\JWT\\CachedKeySet' => __DIR__ . '/..' . '/firebase/php-jwt/src/CachedKeySet.php',
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
@@ -3616,31 +3623,24 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Larastan\\Larastan\\Collectors\\UsedViewMakeCollector' => __DIR__ . '/..' . '/larastan/larastan/src/Collectors/UsedViewMakeCollector.php',
         'Larastan\\Larastan\\Concerns\\HasContainer' => __DIR__ . '/..' . '/larastan/larastan/src/Concerns/HasContainer.php',
         'Larastan\\Larastan\\Concerns\\LoadsAuthModel' => __DIR__ . '/..' . '/larastan/larastan/src/Concerns/LoadsAuthModel.php',
-        'Larastan\\Larastan\\Contracts\\Methods\\PassableContract' => __DIR__ . '/..' . '/larastan/larastan/src/Contracts/Methods/PassableContract.php',
-        'Larastan\\Larastan\\Contracts\\Methods\\Pipes\\PipeContract' => __DIR__ . '/..' . '/larastan/larastan/src/Contracts/Methods/Pipes/PipeContract.php',
-        'Larastan\\Larastan\\Contracts\\Types\\PassableContract' => __DIR__ . '/..' . '/larastan/larastan/src/Contracts/Types/PassableContract.php',
-        'Larastan\\Larastan\\Contracts\\Types\\Pipes\\PipeContract' => __DIR__ . '/..' . '/larastan/larastan/src/Contracts/Types/Pipes/PipeContract.php',
         'Larastan\\Larastan\\Internal\\ComposerHelper' => __DIR__ . '/..' . '/larastan/larastan/src/Internal/ComposerHelper.php',
         'Larastan\\Larastan\\Internal\\ConfigHelper' => __DIR__ . '/..' . '/larastan/larastan/src/Internal/ConfigHelper.php',
         'Larastan\\Larastan\\Internal\\ConsoleApplicationHelper' => __DIR__ . '/..' . '/larastan/larastan/src/Internal/ConsoleApplicationHelper.php',
         'Larastan\\Larastan\\Internal\\ConsoleApplicationResolver' => __DIR__ . '/..' . '/larastan/larastan/src/Internal/ConsoleApplicationResolver.php',
+        'Larastan\\Larastan\\Internal\\RecursionGuard' => __DIR__ . '/..' . '/larastan/larastan/src/Internal/RecursionGuard.php',
         'Larastan\\Larastan\\LarastanStubFilesExtension' => __DIR__ . '/..' . '/larastan/larastan/src/LarastanStubFilesExtension.php',
+        'Larastan\\Larastan\\Methods\\AuthsMethodsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/AuthsMethodsExtension.php',
         'Larastan\\Larastan\\Methods\\BuilderHelper' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/BuilderHelper.php',
+        'Larastan\\Larastan\\Methods\\ContractsMethodsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/ContractsMethodsExtension.php',
         'Larastan\\Larastan\\Methods\\EloquentBuilderForwardsCallsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/EloquentBuilderForwardsCallsExtension.php',
-        'Larastan\\Larastan\\Methods\\Extension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Extension.php',
+        'Larastan\\Larastan\\Methods\\FacadesMethodsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/FacadesMethodsExtension.php',
         'Larastan\\Larastan\\Methods\\HigherOrderCollectionProxyExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/HigherOrderCollectionProxyExtension.php',
         'Larastan\\Larastan\\Methods\\HigherOrderTapProxyExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/HigherOrderTapProxyExtension.php',
-        'Larastan\\Larastan\\Methods\\Kernel' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Kernel.php',
         'Larastan\\Larastan\\Methods\\Macro' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Macro.php',
         'Larastan\\Larastan\\Methods\\MacroMethodsClassReflectionExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/MacroMethodsClassReflectionExtension.php',
+        'Larastan\\Larastan\\Methods\\ManagersMethodsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/ManagersMethodsExtension.php',
         'Larastan\\Larastan\\Methods\\ModelFactoryMethodsClassReflectionExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/ModelFactoryMethodsClassReflectionExtension.php',
         'Larastan\\Larastan\\Methods\\ModelForwardsCallsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/ModelForwardsCallsExtension.php',
-        'Larastan\\Larastan\\Methods\\Passable' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Passable.php',
-        'Larastan\\Larastan\\Methods\\Pipes\\Auths' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Pipes/Auths.php',
-        'Larastan\\Larastan\\Methods\\Pipes\\Contracts' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Pipes/Contracts.php',
-        'Larastan\\Larastan\\Methods\\Pipes\\Facades' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Pipes/Facades.php',
-        'Larastan\\Larastan\\Methods\\Pipes\\Managers' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Pipes/Managers.php',
-        'Larastan\\Larastan\\Methods\\Pipes\\SelfClass' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/Pipes/SelfClass.php',
         'Larastan\\Larastan\\Methods\\RedirectResponseMethodsClassReflectionExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/RedirectResponseMethodsClassReflectionExtension.php',
         'Larastan\\Larastan\\Methods\\RelationForwardsCallsExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/RelationForwardsCallsExtension.php',
         'Larastan\\Larastan\\Methods\\StorageMethodsClassReflectionExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Methods/StorageMethodsClassReflectionExtension.php',
@@ -3688,6 +3688,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Larastan\\Larastan\\ReturnTypes\\DateExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/DateExtension.php',
         'Larastan\\Larastan\\ReturnTypes\\DoubleUnderscoreHelperReturnTypeExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/DoubleUnderscoreHelperReturnTypeExtension.php',
         'Larastan\\Larastan\\ReturnTypes\\EloquentBuilderExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/EloquentBuilderExtension.php',
+        'Larastan\\Larastan\\ReturnTypes\\EloquentCollectionMapDynamicReturnTypeExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/EloquentCollectionMapDynamicReturnTypeExtension.php',
         'Larastan\\Larastan\\ReturnTypes\\FactoryDynamicMethodReturnTypeExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/FactoryDynamicMethodReturnTypeExtension.php',
         'Larastan\\Larastan\\ReturnTypes\\FormRequestSafeDynamicMethodReturnTypeExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/FormRequestSafeDynamicMethodReturnTypeExtension.php',
         'Larastan\\Larastan\\ReturnTypes\\GuardDynamicStaticMethodReturnTypeExtension' => __DIR__ . '/..' . '/larastan/larastan/src/ReturnTypes/GuardDynamicStaticMethodReturnTypeExtension.php',
@@ -3758,7 +3759,6 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Larastan\\Larastan\\Types\\GenericEloquentCollectionTypeNodeResolverExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Types/GenericEloquentCollectionTypeNodeResolverExtension.php',
         'Larastan\\Larastan\\Types\\ModelProperty\\GenericModelPropertyType' => __DIR__ . '/..' . '/larastan/larastan/src/Types/ModelProperty/GenericModelPropertyType.php',
         'Larastan\\Larastan\\Types\\ModelProperty\\ModelPropertyTypeNodeResolverExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Types/ModelProperty/ModelPropertyTypeNodeResolverExtension.php',
-        'Larastan\\Larastan\\Types\\Passable' => __DIR__ . '/..' . '/larastan/larastan/src/Types/Passable.php',
         'Larastan\\Larastan\\Types\\ViewStringType' => __DIR__ . '/..' . '/larastan/larastan/src/Types/ViewStringType.php',
         'Larastan\\Larastan\\Types\\ViewStringTypeNodeResolverExtension' => __DIR__ . '/..' . '/larastan/larastan/src/Types/ViewStringTypeNodeResolverExtension.php',
         'Laravel\\Passport\\AccessToken' => __DIR__ . '/..' . '/laravel/passport/src/AccessToken.php',
@@ -3931,7 +3931,6 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Laravel\\SerializableClosure\\Contracts\\Signer' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Contracts/Signer.php',
         'Laravel\\SerializableClosure\\Exceptions\\InvalidSignatureException' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Exceptions/InvalidSignatureException.php',
         'Laravel\\SerializableClosure\\Exceptions\\MissingSecretKeyException' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Exceptions/MissingSecretKeyException.php',
-        'Laravel\\SerializableClosure\\Exceptions\\PhpVersionNotSupportedException' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Exceptions/PhpVersionNotSupportedException.php',
         'Laravel\\SerializableClosure\\SerializableClosure' => __DIR__ . '/..' . '/laravel/serializable-closure/src/SerializableClosure.php',
         'Laravel\\SerializableClosure\\Serializers\\Native' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Serializers/Native.php',
         'Laravel\\SerializableClosure\\Serializers\\Signed' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Serializers/Signed.php',
@@ -6131,6 +6130,12 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'ParagonIE\\ConstantTime\\Encoding' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Encoding.php',
         'ParagonIE\\ConstantTime\\Hex' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/Hex.php',
         'ParagonIE\\ConstantTime\\RFC4648' => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src/RFC4648.php',
+        'Pdo\\Dblib' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Dblib.php',
+        'Pdo\\Firebird' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Firebird.php',
+        'Pdo\\Mysql' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Mysql.php',
+        'Pdo\\Odbc' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Odbc.php',
+        'Pdo\\Pgsql' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Pgsql.php',
+        'Pdo\\Sqlite' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/Pdo/Sqlite.php',
         'PharIo\\Manifest\\Application' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Application.php',
         'PharIo\\Manifest\\ApplicationName' => __DIR__ . '/..' . '/phar-io/manifest/src/values/ApplicationName.php',
         'PharIo\\Manifest\\Author' => __DIR__ . '/..' . '/phar-io/manifest/src/values/Author.php',
@@ -7023,6 +7028,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
         'ReflectionConstant' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/ReflectionConstant.php',
+        'RoundingMode' => __DIR__ . '/..' . '/symfony/polyfill-php84/Resources/stubs/RoundingMode.php',
         'SQLite3Exception' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/SQLite3Exception.php',
         'Sabberworm\\CSS\\CSSElement' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/CSSElement.php',
         'Sabberworm\\CSS\\CSSList\\AtRuleBlockList' => __DIR__ . '/..' . '/sabberworm/php-css-parser/src/CSSList/AtRuleBlockList.php',
@@ -8806,6 +8812,7 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Symfony\\Contracts\\EventDispatcher\\EventDispatcherInterface' => __DIR__ . '/..' . '/symfony/event-dispatcher-contracts/EventDispatcherInterface.php',
         'Symfony\\Contracts\\Service\\Attribute\\Required' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/Required.php',
         'Symfony\\Contracts\\Service\\Attribute\\SubscribedService' => __DIR__ . '/..' . '/symfony/service-contracts/Attribute/SubscribedService.php',
+        'Symfony\\Contracts\\Service\\ContainerAwareInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ContainerAwareInterface.php',
         'Symfony\\Contracts\\Service\\ResetInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ResetInterface.php',
         'Symfony\\Contracts\\Service\\ServiceCollectionInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceCollectionInterface.php',
         'Symfony\\Contracts\\Service\\ServiceLocatorTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceLocatorTrait.php',
@@ -8876,6 +8883,9 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
         'Tests\\Feature\\PromoCodeTest' => __DIR__ . '/../..' . '/tests/Feature/PromoCodeTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
+        'Tests\\Unit\\Services\\AvailabilityServiceTest' => __DIR__ . '/../..' . '/tests/Unit/Services/AvailabilityServiceTest.php',
+        'Tests\\Unit\\Services\\PricingCalculatorTest' => __DIR__ . '/../..' . '/tests/Unit/Services/PricingCalculatorTest.php',
+        'Tests\\Unit\\Services\\TimeCostCalculatorTest' => __DIR__ . '/../..' . '/tests/Unit/Services/TimeCostCalculatorTest.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
         'TheSeer\\Tokenizer\\NamespaceUriException' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUriException.php',
@@ -9303,9 +9313,9 @@ class ComposerStaticInita42e715925bb3d743365157a022550ed
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita42e715925bb3d743365157a022550ed::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita42e715925bb3d743365157a022550ed::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita42e715925bb3d743365157a022550ed::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf6c11df31d8a000738d29802437fc186::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf6c11df31d8a000738d29802437fc186::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf6c11df31d8a000738d29802437fc186::$classMap;
 
         }, null, ClassLoader::class);
     }

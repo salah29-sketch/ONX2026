@@ -77,11 +77,15 @@ As a consequence of this change, the `'passport.client_uuids'` configuration pro
 
 > Changing the client ID in the database will invalidate all tokens previously issued for that client, as tokens are bound to the original client identifier.
 
+> The underlying [OAuth2 server](https://oauth2.thephpleague.com/database-setup/#:~:text=Please%20note%20that,the%20bearer%20token) sets the token's `sub` claim to the client's identifier for client credentials tokens. By default, Passport uses `UUID`s for clients, so this cannot collide with a user's integer primary key. However, if you have set `Passport::$clientUuids` to `false`, a client credentials token may inadvertently resolve a user whose ID matches the client's ID. In such cases, using this middleware cannot guarantee that the incoming token is a client credentials token.
+
+> Included in the upgrade is a change that permanently invalidates client credential tokens for any user whose user ID happens to match the client ID of the token issuer.
+
 ### Client Secrets Hashed by Default
 
 PR: https://github.com/laravel/passport/pull/1745
 
-Passport now always hashes client secrets using Laravel's `Hash` facade. If you are currently storing your client secrets in plain text, you may invoke the `passport:hash` Artisan command to hash all of your existing client secrets:
+Passport now always hashes client secrets using Laravel's `Hash` facade. If you are currently storing your client secrets in plain text, you must invoke the `passport:hash` Artisan command to hash all of your existing client secrets:
 
 ```bash
 php artisan passport:hash
