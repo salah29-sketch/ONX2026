@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export APPPATH=/home/ssxruszh/laravel_app
+    - /bin/cp -R * $APPPATH
