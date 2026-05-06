@@ -40,15 +40,9 @@ class EventBookingForm extends Component
     public bool $existingAccount = false;
     public bool $checkingDate = false;
 
-    public array $pricingSummary = [
-        'base'         => 0,
-        'options_cost' => 0,
-        'time_cost'    => 0,
-        'travel_cost'  => 0,
-        'subtotal'     => 0,
-        'total'        => 0,
-        'deposit'      => 10000,
-    ];
+    public array $options = [];
+    public array $venues = [];
+    public array $wilayas = [];
 
     public function mount(int $serviceId): void
     {
@@ -62,6 +56,9 @@ class EventBookingForm extends Component
         $wilaya = Wilaya::where('is_local', true)->first();
         $this->wilayaId = $wilaya?->id;
 
+        // Load data once
+        $this->loadData();
+
         if ($this->isWeddingMode()) {
             $this->startTime = $this->service->default_start_time
                 ? Carbon::parse($this->service->default_start_time)->format('H:i')
@@ -72,6 +69,13 @@ class EventBookingForm extends Component
         }
 
         $this->recalculate();
+    }
+
+    private function loadData(): void
+    {
+        $this->options = PackageOption::whereHas('package', fn($q) => $q->where('service_id', $this->serviceId))->where('is_active', true)->get()->toArray();
+        $this->venues  = Venue::where('is_active', true)->orderBy('sort_order')->orderBy('name')->get()->toArray();
+        $this->wilayas = Wilaya::orderBy('code')->get()->toArray();
     }
 
     private function isWeddingMode(): bool
@@ -264,10 +268,6 @@ class EventBookingForm extends Component
 
     public function render()
     {
-        $options = PackageOption::whereHas('package', fn($q) => $q->where('service_id', $this->serviceId))->where('is_active', true)->get();
-        $venues  = Venue::where('is_active', true)->orderBy('sort_order')->orderBy('name')->get();
-        $wilayas = Wilaya::orderBy('code')->get();
-
-        return view('livewire.event-booking-form', compact('options', 'venues', 'wilayas'));
+        return view('livewire.event-booking-form');
     }
 }

@@ -81,9 +81,7 @@ Route::prefix('services')->name('services.')->group(function () {
 Route::get('/packages', [ServiceController::class, 'packages'])->name('front.packages');
 
 // ── نظام الحجز الموحّد (Livewire) ────────────────────────────────────
-Route::get('/book', function () {
-    return view('front.booking.unified');
-})->name('book');
+Route::get('/book', fn () => view('front.booking.smart'))->name('book');
 
 // ── Redirects من النظام القديم ──────────────────────────────────────
 Route::get('/booking', fn () => redirect()->route('book', status: 301))->name('booking');

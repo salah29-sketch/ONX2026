@@ -113,7 +113,7 @@
             @if($isCustomPackage)
                 <div class="sec-label">اختر الخيارات</div>
                 <div class="options-grid">
-                    @foreach($options as $option)
+                    @foreach($this->options as $option)
                         <div class="opt-card {{ isset($selectedOptions[$option->id]) ? 'selected' : '' }}"
                              wire:click="toggleOption({{ $option->id }})">
                             <div class="opt-check">{{ isset($selectedOptions[$option->id]) ? '✓' : '' }}</div>
@@ -147,7 +147,7 @@
                 <div class="field-label">تاريخ الفعالية</div>
                 <input type="date"
                        class="field-input"
-                       wire:model.live="eventDate"
+                       wire:model.live.debounce.300ms="eventDate"
                        min="{{ date('Y-m-d') }}">
                 @if($checkingDate)
                     <div class="avail-badge avail-loading">⏳ جاري التحقق...</div>
@@ -214,9 +214,9 @@
             @if($service->show_venue_selector)
                 <div class="location-section">
                     <div class="field-label">القاعة</div>
-                    <select class="field-input" wire:model.live="venueId">
+                    <select class="field-input" wire:model.live.debounce.300ms="venueId">
                         <option value="">اختر قاعة...</option>
-                        @foreach($venues as $venue)
+                        @foreach($this->venues as $venue)
                             <option value="{{ $venue->id }}">{{ $venue->name }}</option>
                         @endforeach
                     </select>
@@ -232,9 +232,9 @@
             @if($service->show_wilaya_selector)
                 <div class="location-section">
                     <div class="field-label">الولاية</div>
-                    <select class="field-input" wire:model.live="wilayaId">
+                    <select class="field-input" wire:model.live.debounce.300ms="wilayaId">
                         <option value="">اختر الولاية...</option>
-                        @foreach($wilayas as $wilaya)
+                        @foreach($this->wilayas as $wilaya)
                             <option value="{{ $wilaya->id }}">{{ $wilaya->code }} — {{ $wilaya->name }}</option>
                         @endforeach
                     </select>

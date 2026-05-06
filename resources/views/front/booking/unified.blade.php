@@ -16,10 +16,28 @@
     <p class="text-neutral-400 text-sm md:text-base max-w-md mx-auto leading-relaxed">
         اختر الخدمة والموعد المناسب — نتواصل معك لتأكيد التفاصيل وتنفيذ أفكارك بأعلى جودة.
     </p>
+
+    {{-- Toggle: Smart Form / Wizard --}}
+    <div class="mt-6 inline-flex items-center bg-white/[0.04] border border-white/10 rounded-full p-1 gap-1">
+        <a href="{{ request()->fullUrlWithQuery(['mode' => 'smart']) }}"
+           class="px-4 py-1.5 rounded-full text-xs font-bold transition-all
+               {{ request('mode', 'smart') !== 'wizard' ? 'bg-orange-500 text-white shadow-[0_0_12px_rgba(249,115,22,0.4)]' : 'text-white/50 hover:text-white' }}">
+            ⚡ نموذج ذكي
+        </a>
+        <a href="{{ request()->fullUrlWithQuery(['mode' => 'wizard']) }}"
+           class="px-4 py-1.5 rounded-full text-xs font-bold transition-all
+               {{ request('mode') === 'wizard' ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white' }}">
+            خطوة بخطوة
+        </a>
+    </div>
 </header>
 
-<!-- MAIN WIZARD AREA -->
-<main class="flex-grow pb-24 px-4 w-full max-w-7xl mx-auto">
-    @livewire('booking.booking-page')
+<!-- MAIN BOOKING AREA -->
+<main class="flex-grow pb-24 px-4 w-full max-w-4xl mx-auto">
+    @if(request('mode') === 'wizard')
+        @livewire('booking.booking-page')
+    @else
+        @livewire('booking.smart-booking-form')
+    @endif
 </main>
 @endsection

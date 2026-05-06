@@ -113,8 +113,7 @@
         {{-- Action buttons --}}
         <div class="space-y-2.5 pt-4 border-t border-white/8">
             <button type="button"
-                onclick="openSbModal({{ \Illuminate\Support\e(json_encode($card['bookingJs'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) }})"
-                class="block w-full text-center py-3.5 rounded-full font-black text-sm cursor-pointer transition duration-300
+                onclick="openSbModal({{ e(json_encode($card['bookingJs'], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT)) }})"                class="block w-full text-center py-3.5 rounded-full font-black text-sm cursor-pointer transition duration-300
                     {{ $card['isFeatured']
                         ? 'bg-orange-500 hover:bg-orange-400 text-black hover:shadow-[0_0_30px_rgba(249,115,22,0.3)]'
                         : 'border border-white/15 bg-white/5 text-white hover:border-orange-500/50 hover:bg-orange-500/10' }}">
