@@ -356,7 +356,8 @@
                                 <button type="button" class="cd"
                                     :class="{past:day.p,sel:date===day.s,tod:day.t}"
                                     :disabled="day.p"
-                                    @click="!day.p&&debouncedPickDate(day.s)"
+                                    @click="!day.p&&pickDate(day.s)"
+
                                     x-text="day.d">
                                 </button>
                             </template>
@@ -540,12 +541,23 @@ function bk(){return{
     },
 
     // Debounced functions to reduce API calls
-    debouncedOnWilaya: debounce(async function() {
-        await this.onWilaya();
-    }, 300),
-    debouncedPickDate: debounce(async function(date) {
-        await this.pickDate(date);
-    }, 300),
+    debouncedOnWilaya: debounce(function() {
+    this.fetchPrice();
+    if (this.sel?.show_venue_selector) {
+        fetch('/api/smart-booking/venues?wilaya_id=' + this.form.wilaya_id)
+            .then(r => r.json())
+            .then(d => { this.venues = d; })
+            .catch(e => console.error(e));
+    }
+}, 300),
+    debouncedPickDate: debounce(function(date) {
+    this.date = date;
+    this.avail = null;
+    fetch('/api/smart-booking/availability?date=' + date + '&service_id=' + (this.sel?.id || ''))
+        .then(r => r.json())
+        .then(d => { this.avail = d.status; })
+        .catch(e => { console.error(e); this.avail = 'error'; });
+}, 300),
 
     async pickSvc(svc){
         this.sel=svc;this.curPkg=null;this.isCustom=false;this.opts={};
@@ -577,18 +589,18 @@ function bk(){return{
         this.fetchPrice();
     },
 
-    async pickDate(s){
-        this.date = s;
-        this.avail = null;
-        try {
-            const r = await fetch('/api/smart-booking/availability?date=' + s + '&service_id=' + (this.sel?.id || ''));
-            const d = await r.json();
-            this.avail = d.status;
-        } catch (e) {
-            console.error('Availability check failed', e);
-            this.avail = 'error';
-        }
-    },
+   async pickDate(s){
+    this.date = s;
+    this.avail = null;
+    try {
+        const r = await fetch('/api/smart-booking/availability?date=' + s + '&service_id=' + (this.sel?.id || ''));
+        const d = await r.json();
+        this.avail = d.status;
+    } catch (e) {
+        console.error(e);
+        this.avail = 'error';
+    }
+},
 
     calcEnd(){
         if (!this.form.slot_start || !this.curPkg?.duration) return;

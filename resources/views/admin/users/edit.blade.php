@@ -61,11 +61,16 @@
                     </em>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.user.fields.password_helper') }}
-                </p>
-            </div>
-            <div class="mb-4">
-                <label for="roles" class="db-label">{{ trans('cruds.user.fields.roles') }}*
+    {{ trans('cruds.user.fields.password_helper') }}
+</p>
+</div>
+<div class="mb-4">
+    <label for="password_confirmation" class="db-label">تأكيد كلمة المرور</label>
+    <input type="password" id="password_confirmation" name="password_confirmation" class="db-input">
+</div>
+<div class="mb-4">
+    <label for="roles"
+                class="db-label">{{ trans('cruds.user.fields.roles') }}*
                     <span class="db-btn-primary  select-all">{{ trans('global.select_all') }}</span>
                     <span class="db-btn-primary  deselect-all">{{ trans('global.deselect_all') }}</span></label>
                 <select name="roles[]" id="roles" class=" select2 db-input" multiple="multiple" required>

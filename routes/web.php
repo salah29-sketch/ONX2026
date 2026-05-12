@@ -212,7 +212,8 @@ Route::prefix('worker')->name('worker.')->group(function () {
         ->middleware('throttle:5,1');
 
     Route::middleware('worker.auth')->group(function () {
-        Route::post('logout', [\App\Http\Controllers\Worker\AuthController::class, 'logout'])->name('logout');
-        Route::get('dashboard', [\App\Http\Controllers\Worker\DashboardController::class, 'index'])->name('dashboard');
-    });
+    Route::post('logout', [\App\Http\Controllers\Worker\AuthController::class, 'logout'])->name('logout');
+    Route::get('dashboard', [\App\Http\Controllers\Worker\DashboardController::class, 'index'])->name('dashboard');
+    Route::post('bookings', [\App\Http\Controllers\Worker\DashboardController::class, 'store'])->name('bookings.store');
+});
 });

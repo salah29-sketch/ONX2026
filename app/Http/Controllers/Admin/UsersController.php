@@ -52,17 +52,22 @@ class UsersController extends Controller
 
         return view('admin.users.edit', compact('roles', 'user'));
     }
+public function update(UpdateUserRequest $request, User $user)
+{
+    abort_unless(Gate::allows('user_edit'), 403);
 
-    public function update(UpdateUserRequest $request, User $user)
-    {
-        abort_unless(Gate::allows('user_edit'), 403);
+    $user->name  = $request->name;
+    $user->email = $request->email;
 
-        $user->update($request->validated());
-        $user->roles()->sync($request->input('roles', []));
-
-        return redirect()->route('admin.users.index');
+    if ($request->filled('password')) {
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
     }
 
+    $user->save();
+    $user->roles()->sync($request->input('roles', []));
+
+    return redirect()->route('admin.users.index')->with('success', 'تم التحديث.');
+}
     public function show(User $user)
     {
         abort_unless(Gate::allows('user_show'), 403);

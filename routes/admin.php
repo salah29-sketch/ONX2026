@@ -136,6 +136,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin.audit'])->gro
     Route::delete('users/destroy', [UsersController::class, 'massDestroy'])->name('users.massDestroy');
     Route::resource('users', UsersController::class);
 
+// ─── الولايات ─────────────────────────────────────────
+Route::resource('wilayas', \App\Http\Controllers\Admin\WilayasController::class)->except(['show']);
+
+// ─── مناطق التنقل ─────────────────────────────────────
+Route::resource('travel-zones', \App\Http\Controllers\Admin\TravelZonesController::class)->except(['show'])->parameters(['travel-zones' => 'travelZone']);
+
+// ─── القاعات ──────────────────────────────────────────
+Route::resource('venues', \App\Http\Controllers\Admin\VenuesController::class)->except(['show']);
+
     // ─── الشركة ───────────────────────────────────────────
     Route::get('company',        [CompanyController::class, 'index'])->name('company');
     Route::get('company/edit',   [CompanyController::class, 'edit'])->name('company.edit');

@@ -69,10 +69,14 @@
                 </div>
 
                 <div class="col-span-12 mb-3">
-                    <label>المميزات (JSON) - اختياري</label>
-                    <textarea name="features" rows="4" class="db-input @error('features') is-invalid @enderror" placeholder='["ميزة 1", "ميزة 2"]'>{{ old('features') }}</textarea>
-                    <small class="text-[var(--tx-muted)]">أدخل المميزات بصيغة مصفوفة JSON صالحة.</small>
-                    @error('features') <span class="invalid-feedback">{{ $message }}</span> @enderror
+                    <label>المميزات</label>
+                    <div id="features-list" class="space-y-2 mb-2"></div>
+                    <button type="button" onclick="addFeature()"
+                        class="text-sm px-3 py-1.5 rounded-lg border border-dashed border-orange-500/40 text-orange-400 hover:bg-orange-500/10 transition">
+                        + إضافة ميزة
+                    </button>
+                    <input type="hidden" name="features" id="features-hidden">
+                    @error('features') <span class="text-red-400 text-sm">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="col-span-12 md:col-span-3 mb-3">
@@ -107,3 +111,38 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+function addFeature(value = '') {
+    const list = document.getElementById('features-list');
+    const row = document.createElement('div');
+    row.className = 'flex items-center gap-2 feature-row';
+    row.innerHTML = `
+        <span class="text-green-400 font-bold text-lg">✓</span>
+        <input type="text" class="db-input feature-input flex-1" placeholder="أدخل ميزة..." value="${value}">
+        <button type="button" onclick="removeFeature(this)" class="text-red-400 hover:text-red-300 px-2 text-lg">✕</button>
+    `;
+    list.appendChild(row);
+}
+
+function removeFeature(btn) {
+    btn.closest('.feature-row').remove();
+}
+
+document.querySelector('form').addEventListener('submit', function() {
+    const inputs = document.querySelectorAll('.feature-input');
+    const features = Array.from(inputs)
+        .map(i => i.value.trim())
+        .filter(v => v !== '');
+    document.getElementById('features-hidden').value = JSON.stringify(features);
+});
+
+const existingFeatures = @json(old('features_array', []));
+if (Array.isArray(existingFeatures) && existingFeatures.length > 0) {
+    existingFeatures.forEach(f => addFeature(f));
+} else {
+    addFeature();
+}
+</script>
+@endpush

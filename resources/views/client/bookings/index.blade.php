@@ -83,7 +83,8 @@
 @forelse($bookings as $b)
     @php
         $step     = $b->statusStep();
-        $isEvent  = $b->booking_type === 'event';
+        $isEvent  = in_array($b->booking_type, ['event', 'appointment']);
+$isAds    = $b->booking_type === 'subscription';
         $sDate    = $b->event_date ?? $b->deadline ?? $b->created_at;
         $progress = ($step / 4) * 100;
     @endphp
@@ -97,11 +98,12 @@
                         @if($isEvent)
                             <span class="badge-event text-[10px] px-2 py-0.5">حفلة</span>
                         @else
-                            <span class="badge-ads text-[10px] px-2 py-0.5">إعلان</span>
+                           <span class="badge-ads text-[10px] px-2 py-0.5">{{ $b->service?->name ?? 'خدمة' }}</span>
+
                         @endif
                     </span>
                     <p class="booking-card-meta">
-                        {{ $isEvent ? 'تصوير فعاليات' : 'إعلانات' }}
+                       {{ $b->service?->name ?? ($isEvent ? 'تصوير فعاليات' : 'خدمات') }}ات' }}
                         · {{ $sDate->format('d/m/Y') }}
                     </p>
                 </div>

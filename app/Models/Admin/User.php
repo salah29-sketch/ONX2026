@@ -51,12 +51,12 @@ class User extends Authenticatable
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function setPasswordAttribute($input)
-    {
-        if ($input) {
-            $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
-        }
+public function setPasswordAttribute($input)
+{
+    if ($input) {
+        $this->attributes['password'] = $input;
     }
+}
 
     public function sendPasswordResetNotification($token)
     {

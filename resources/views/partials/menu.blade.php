@@ -169,14 +169,35 @@
     <li class="onx-sep-label">الإعدادات</li>
 
     {{-- ══ إعدادات النظام ══ --}}
-    <li class="onx-group {{ request()->is('admin/eventlocations*') || request()->is('admin/company*') ? 'open' : '' }}">
+    <li class="onx-group {{ request()->is('admin/eventlocations*') || request()->is('admin/company*') || request()->is('admin/wilayas*') || request()->is('admin/venues*') ? 'open' : '' }}">
+
         <button class="onx-link onx-toggle" onclick="onxToggle(this)">
             <i class="fas fa-sliders-h onx-icon"></i>
             <span>إعدادات النظام</span>
             <i class="fas fa-chevron-down onx-arrow"></i>
         </button>
         <ul class="onx-sub">
-
+            <li>
+    <a href="{{ route('admin.travel-zones.index') }}"
+       class="onx-link onx-sub-link {{ request()->is('admin/travel-zones*') ? 'active' : '' }}">
+        <i class="fas fa-route onx-icon"></i>
+        <span>مناطق التنقل</span>
+    </a>
+</li>
+<li>
+    <a href="{{ route('admin.wilayas.index') }}"
+       class="onx-link onx-sub-link {{ request()->is('admin/wilayas*') ? 'active' : '' }}">
+        <i class="fas fa-map-marker-alt onx-icon"></i>
+        <span>الولايات</span>
+    </a>
+</li>
+<li>
+    <a href="{{ route('admin.venues.index') }}"
+       class="onx-link onx-sub-link {{ request()->is('admin/venues*') ? 'active' : '' }}">
+        <i class="fas fa-map-marked-alt onx-icon"></i>
+        <span>قاعات الأفراح</span>
+    </a>
+</li>
             <li>
                 <a href="{{ route('admin.company') }}"
                    class="onx-link onx-sub-link {{ request()->routeIs('admin.company') ? 'active' : '' }}">

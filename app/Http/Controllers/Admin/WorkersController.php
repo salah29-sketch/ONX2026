@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Models\Worker\Worker;
 use Illuminate\Http\Request;
-
 class WorkersController extends Controller
 {
     public function index()
@@ -13,12 +10,10 @@ class WorkersController extends Controller
         $workers = Worker::orderBy('name')->paginate(20);
         return view('admin.workers.index', compact('workers'));
     }
-
     public function create()
     {
         return view('admin.workers.create');
     }
-
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -29,16 +24,14 @@ class WorkersController extends Controller
             'is_active'=> 'nullable|boolean',
         ]);
         $data['is_active'] = $request->boolean('is_active', true);
-        $data['password'] = bcrypt($data['password']);
+        // ✅ حذفنا bcrypt — الـ Model يشفر تلقائياً
         Worker::create($data);
         return redirect()->route('admin.workers.index')->with('success', 'تم إضافة العامل.');
     }
-
     public function edit(Worker $worker)
     {
         return view('admin.workers.edit', compact('worker'));
     }
-
     public function update(Request $request, Worker $worker)
     {
         $rules = [
@@ -53,14 +46,14 @@ class WorkersController extends Controller
         $data = $request->validate($rules);
         $data['is_active'] = $request->boolean('is_active', true);
         if ($request->filled('password')) {
-            $data['password'] = bcrypt($request->password);
+            // ✅ حذفنا bcrypt — الـ Model يشفر تلقائياً
+            $data['password'] = $request->password;
         } else {
             unset($data['password']);
         }
         $worker->update($data);
         return redirect()->route('admin.workers.index')->with('success', 'تم التحديث.');
     }
-
     public function destroy(Worker $worker)
     {
         $worker->delete();

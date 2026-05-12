@@ -163,8 +163,7 @@ class DashboardController extends Controller
     public function bookingDetail(Booking $booking)
     {
         $client = $this->client();
-        if ($booking->client_id !== $client->id) abort(404);
-
+if ((int)$booking->client_id !== (int)$client->id) abort(404);
         $booking->load(['photos', 'payments', 'visibleFiles', 'subscription']);
         $meta = app(\App\Services\BookingService::class)->getBookingMeta($booking);
         // رقم الطلب للعميل (1، 2، 3...) وليس الـ ID الداخلي

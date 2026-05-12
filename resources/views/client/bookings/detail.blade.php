@@ -181,15 +181,17 @@
     @endif
 
     {{-- Header --}}
-    @php $isEventDetail = $booking->booking_type === 'event'; @endphp
-    <div class="portal-header" style="border-inline-start: 4px solid {{ $isEventDetail ? 'var(--event-primary, #f59e0b)' : 'var(--ads-primary, #3b82f6)' }}; padding-inline-start: 16px; background: {{ $isEventDetail ? '#fffbeb' : '#eff6ff' }}; border-radius: 14px; margin-bottom: 24px; border-bottom: none;">
+    @php $isEventDetail = in_array($booking->booking_type, ['event', 'appointment']);
+$serviceName = $booking->service?->name ?? ($isEventDetail ? 'تصوير فعاليات' : 'خدمة');
+    @endphp
+    <div class="portal-header" style="border-inline-start: 4px solid {{ $isEventDetail ? 'var(--event-primary, #f59e0b)' : 'var(--ads-primary, #3b82f6)' }}; padding-inline-start: 16px; border-radius: 14px; margin-bottom: 24px; border-bottom: none; background: transparent;">
         <div>
             <div class="flex items-center gap-2 mb-1">
                 <h1 class="portal-title" style="font-size: 22px; margin: 0;">الطلب {{ $clientOrderNumber ?? $booking->id }}</h1>
                 @if($isEventDetail)
                     <span class="badge-event">🎪 حفلة</span>
                 @else
-                    <span class="badge-ads">📢 إعلان</span>
+                    <span class="badge-ads">{{ $serviceName }}</span>
                 @endif
             </div>
             <p class="portal-subtitle">
